@@ -1,4 +1,4 @@
-setwd("~/Desktop/Online Coursera/Coursera-R-Programming/week2/")
+setwd("C:\\Users\\Praveen\\Desktop\\R Programming\\Coursera-Computing-for-Data-Analysis-R-master\\Week 2")
 
 corr <- function(directory, threshold = 0) {
     ## 'directory' is a character vector of length 1 indicating
@@ -35,10 +35,3 @@ corr <- function(directory, threshold = 0) {
     return(result)   
 }
 
-# tests
-cr <- corr("specdata", 150)
-head(cr)
-cr <- corr("specdata", 400)
-head(cr)
-cr <- corr("specdata", 5000)
-summary(cr)
