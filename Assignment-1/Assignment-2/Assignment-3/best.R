@@ -1,9 +1,4 @@
 best <- function(state, outcome) {
-  ## Read outcome data
-  ## Check that state and outcome are valid
-  ## Return hospital name in that state with lowest 30-day death
-  ## rate
-  
   data <- read.csv(file="outcome-of-care-measures.csv", colClasses = "character")
   reason <- c("heart attack", "heart failure", "pneumonia")
   data[, 11] <- as.numeric(data[, 11])
@@ -27,7 +22,7 @@ best <- function(state, outcome) {
       min <- min(failure, na.rm = T)
       index <- which(failure == min)
       hosp_name <- goal[, 2][index]
-    } else { # "pneumonia"
+    } else { 
       goal <- data[data$State == state, ]
       pneu <- goal[, 23]
       min <- min(pneu, na.rm = T)
