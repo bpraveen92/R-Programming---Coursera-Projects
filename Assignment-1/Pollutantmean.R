@@ -1,28 +1,12 @@
 setwd("C:\\Users\\Praveen\\Desktop\\R Programming\\Coursera-Computing-for-Data-Analysis-R-master\\Week 2")
-#getwd()
-#list.files()
+
 
 pollutantmean <- function(directory, pollutant = "sulfate", id = 1:332) {
-    ## 'directory' is a character vector of length 1 indicating
-    ## the location of the CSV files
-    
-    ## 'pollutant' is a character vector of length 1 indicating
-    ## the name of the pollutant for which we will calculate the
-    ## mean; either "sulfate" or "nitrate".
-    
-    ## 'id' is an integer vector indicating the monitor ID numbers
-    ## to be used
-    
-    ## Return the mean of the pollutant across all monitors list
-    ## in the 'id' vector (ignoring NA values)
-    
-    # set working directory
     if(grep("specdata", directory) == 1) {
         directory <- ("./specdata/")
     }
-    # initialize a vector to hold the pollutant data
+   
     mean_vector <- c()
-    # find all files in the specdata folder
     entire_file <- as.character( list.files(directory) )
     file_paths <- paste(directory, entire_file, sep="")
     for(i in id) {
