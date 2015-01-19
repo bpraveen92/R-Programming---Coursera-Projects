@@ -20,7 +20,7 @@ rankall <- function(outcome, num = "best") {
     stop("invalid outcome")
   } else {
     for(i in 1:arr_len){
-      goal <- data[data$State == state_arr[i], ] # loop for each state
+      goal <- data[data$State == state_arr[i], ] 
       if(outcome == "heart attack"){
         attack <- as.numeric(goal[, 11])   
         len <- dim(goal[!is.na(attack),])[1]
@@ -40,7 +40,7 @@ rankall <- function(outcome, num = "best") {
         len <- dim(goal[!is.na(failure),])[1]
         if(num == "best"){
           hospital[i] <- helper(goal, failure, 1)
-          #hospital[i] <- best(state_arr[i], "heart failure")
+         
         } else if(num == "worst"){
           hospital[i] <- helper(goal, failure, len)
         } else if(num > len){
@@ -54,7 +54,7 @@ rankall <- function(outcome, num = "best") {
         pneumonia <- as.numeric(goal[, 23])
         len <- dim(goal[!is.na(pneumonia),])[1]
         if(num == "best"){
-          #hospital[i] <- best(state_arr[i], "pneumonia")
+         
           hospital[i] <- helper(goal, pneumonia, 1)
         } else if(num == "worst"){
           hospital[i] <- helper(goal, pneumonia, len)
@@ -64,7 +64,7 @@ rankall <- function(outcome, num = "best") {
           hospital[i] <- helper(goal, pneumonia, num)   
         } 
       }  
-    } # end of the for loop
+    } 
     
     df <- data.frame(hospital = hospital, state = state_arr)
     df
